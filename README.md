@@ -6,11 +6,11 @@ yarn start
 The functionalities mentioned in the test are met to the best of my understanding. 
 
 Improvements:
-1)Bootstrap-sass.
-2)Bootswatch-sass for theming.
-3)Masonary layout.
-4)Normalisation.
-5)Transitions for views.
+1)  Bootstrap-sass.
+2)  Bootswatch-sass for theming.
+3)  Masonary layout.
+4)  Normalisation.
+5)  Transitions for views.
 
 
 What is pending:
