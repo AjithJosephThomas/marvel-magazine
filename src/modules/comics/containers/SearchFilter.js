@@ -23,6 +23,7 @@ const SearchFilter = ({
   fetchComics,
   applyFilter,
   toggleFilter,
+  onQueryChange,
   query,
   searchModes,
   filterOptions,
@@ -83,6 +84,7 @@ const SearchFilter = ({
                   noResultsText={"Type to search"}
                   placeholder={selectedSearchMode.placeholder}
                   onInputChange={val => {
+                    window.console.log(val);
                     onQueryChange(val);
                     if (val.length) {
                       switch (selectedSearchMode.id) {
@@ -99,7 +101,6 @@ const SearchFilter = ({
                   onChange={option => {
                     if (option === null) {
                       selectFilter(null);
-                      window.console.log("change");
                       fetchComics();
                     } else {
                       selectFilter(option);
@@ -146,7 +147,6 @@ const mapStateToProps = (state, props) => {
     isFilterLoading
   } = state.comicsList;
   const selectedSearchMode = searchModes[selectedSearchModeId];
-  window.console.log(isComicsLoading);
   return {
     query,
     filterOptions,

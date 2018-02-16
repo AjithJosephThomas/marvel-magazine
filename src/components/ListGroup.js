@@ -1,15 +1,21 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 const ListGroup = ({ list }) => (
   <div className="list-group">
     {list.map((item, index) => (
-      <a
-        href="javascript:;"
-        key={`${item.name}${index}`}
+
+        item.url?
+        <Link to={`${item.url?item.url:null}`}
         className="list-group-item"
-      >
+        key={`${item.name}${index}`}>
         {item.name}
-      </a>
+        </Link>
+        :
+        <span
+        className="list-group-item"
+        key={`${item.name}${index}`}>
+        {item.name}
+        </span>
     ))}
   </div>
 );

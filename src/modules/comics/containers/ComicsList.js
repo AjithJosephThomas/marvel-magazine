@@ -28,12 +28,13 @@ class ComicsList extends PureComponent {
     let fireOnce = true;
     if (fireOnce && windowBottom >= docHeight) {
       fireOnce = false;
-      this.props.fetchComics({ offset: this.props.nextOffset });
+    const {queryObj, fetchComics, nextOffset} = this.props;
+    const offset = nextOffset;
+      this.props.fetchComics({...queryObj, offset});
       e.stopPropagation();
     }
   };
   componentDidMount() {
-    window.console.log("componentDidMount");
     document.removeEventListener("scroll", this.handleScroll);
     document.addEventListener("scroll", this.handleScroll);
   }
@@ -57,7 +58,8 @@ ComicsList.propTypes = {
   result: PropTypes.array.isRequired,
   selectedId: PropTypes.number,
   isComicsLoading: PropTypes.bool,
-  nextOffset: PropTypes.number
+  nextOffset: PropTypes.number,
+  queryObj:PropTypes.object
 };
 
 const mapStateToProps = (state, props) => {
@@ -66,10 +68,11 @@ const mapStateToProps = (state, props) => {
     selectedId,
     isComicsLoading,
     offset,
-    count
+    count,
+    queryObj
   } = state.comicsList;
   const nextOffset = offset + count;
-  return { result, selectedId, isComicsLoading, nextOffset };
+  return { result, selectedId, isComicsLoading, nextOffset, queryObj };
 };
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ fetchComics }, dispatch);

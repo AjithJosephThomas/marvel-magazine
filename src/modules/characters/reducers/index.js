@@ -25,8 +25,10 @@ export function charactersList(state = INITIAL_STATE, action) {
     case CHARACTER_FETCH_SUCCESS: {
       const { payload } = action;
       let { offset, limit, total, count, result, charactersById } = payload;
-      result = union(state.result, result);
-      charactersById = { ...state.charactersById, ...charactersById };
+      if(offset){
+        result = union(state.result, result);
+        charactersById = { ...state.charactersById, ...charactersById };
+      }
       return { ...state, offset, limit, total, count, result, charactersById };
     }
     default:

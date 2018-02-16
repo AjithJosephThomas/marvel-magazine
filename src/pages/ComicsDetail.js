@@ -47,15 +47,7 @@ class ComicDetail extends Component {
                 <div className="col-xs-12 col-md-6">
                   <h5 className="text-muted">Prices:</h5>
                   <div className="list-group">
-                    {comic.prices.map((price, index) => (
-                      <a
-                        href="javascript:;"
-                        key={`${price.price}${index}`}
-                        className="list-group-item"
-                      >
-                        {price.price}
-                      </a>
-                    ))}
+                      <ListGroup list={comic.prices} />
                   </div>
                 </div>
               ) : null}

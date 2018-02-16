@@ -11,7 +11,7 @@ import * as services from "../../../services";
 
 export const selectCharacter = id => ({ type: CHARACTER_SELECT, id });
 export const fetchCharacters = queryObj => {
-  window.console.log(queryObj);
+
   return {
     queryObj,
     [CALL_API]: {
@@ -23,7 +23,12 @@ export const fetchCharacters = queryObj => {
             return response.json().then(rawData => {
               const processStrategy = value => ({
                 ...value,
-                comics: value.comics.items,
+                comics: value.comics.items.map(item =>{
+                   const {name, resourceURI } = item;
+                  const urlSplit= resourceURI.split('/');
+                  const url = `/comics/${urlSplit[urlSplit.length-1]}`;
+                  return {name, url}
+                }),
                 series: value.series.items,
                 stories: value.stories.items,
                 events: value.events.items

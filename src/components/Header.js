@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 const appHeader = () => (
-  <nav className="navbar navbar-default navbar-fixed">
+  <nav className="navbar navbar-default navbar-fixed-top">
+    <div className="container">
     <div className="navbar-header">
       <button
         type="button"
@@ -20,11 +21,12 @@ const appHeader = () => (
         </div>
       </a>
     </div>
-    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul className="nav navbar-nav navbar-right">
-    <li><Link to={`/comics`}>Comics</Link></li>
-    <li><Link to={`/characters`}>Characters</Link></li>
-    </ul>
+    <div className="collapse navbar-collapse" id="navbar">
+      <ul className="nav navbar-nav navbar-right">
+        <li><Link to={`/comics`}>Comics</Link></li>
+        <li><Link to={`/characters`}>Characters</Link></li>
+      </ul>
+    </div>
     </div>
   </nav>
 );

@@ -19,7 +19,7 @@ const INITIAL_STATE = {
   count: 0,
   result: [],
   comicsById: {},
-  query: "",
+  queryObj:null,
   selectedFilterOption: null,
   selectedSearchModeId: SEARCH_MODES[0].id,
   isFilterMaximised: false,
@@ -50,9 +50,11 @@ export function comicsList(state = INITIAL_STATE, action) {
       const { payload } = action;
       const isComicsLoading = false;
 
-      let { offset, limit, total, count, result, comicsById } = payload;
-      comicsById = { ...state.comicsById, ...comicsById };
-      result = union(state.result, result);
+      let { offset, limit, total, count, result, comicsById, queryObj } = payload;
+      if(offset){
+        comicsById = { ...state.comicsById, ...comicsById };
+        result = union(state.result, result);
+      }
       const isFilterLoading = false;
       return {
         ...state,
@@ -63,7 +65,8 @@ export function comicsList(state = INITIAL_STATE, action) {
         result,
         comicsById,
         isFilterLoading,
-        isComicsLoading
+        isComicsLoading,
+        queryObj
       };
     }
     case COMICS_FILTER_FETCH_SUCCESS: {

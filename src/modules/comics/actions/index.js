@@ -49,7 +49,16 @@ export const fetchComics = queryObj => {
             return response.json().then(rawData => {
               const processStrategy = value => ({
                 ...value,
-                characters: value.characters.items,
+                characters: value.characters.items.map(item =>{
+                   const {name, resourceURI } = item;
+                  const urlSplit= resourceURI.split('/');
+                  const url = `/characters/${urlSplit[urlSplit.length-1]}`;
+                  return {name, url}
+                }),
+                prices:value.prices.map(item=>{
+                  let name= item.price;
+                  return {...item, name};
+                }),
                 creators: value.creators.items
               });
               const comic = new schema.Entity(
@@ -62,7 +71,7 @@ export const fetchComics = queryObj => {
                 comic
               ]);
               const { comicsById } = entities;
-              return { offset, limit, count, comicsById, result };
+              return { offset, limit, count, comicsById, result, queryObj };
             });
           }
         },
