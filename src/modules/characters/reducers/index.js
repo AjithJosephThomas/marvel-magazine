@@ -3,6 +3,7 @@ import {
   CHARACTER_FETCH_SUCCESS
 } from "../constants/ActionTypes";
 import { URL_LINKS } from "../constants";
+import { union } from "lodash/Array";
 const INITIAL_STATE = {
   offset: 0,
   limit: 0,
@@ -23,7 +24,9 @@ export function charactersList(state = INITIAL_STATE, action) {
     }
     case CHARACTER_FETCH_SUCCESS: {
       const { payload } = action;
-      const { offset, limit, total, count, result, charactersById } = payload;
+      let { offset, limit, total, count, result, charactersById } = payload;
+      result = union(state.result, result);
+      charactersById = { ...state.charactersById, ...charactersById };
       return { ...state, offset, limit, total, count, result, charactersById };
     }
     default:

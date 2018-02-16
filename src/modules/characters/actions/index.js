@@ -10,8 +10,10 @@ import { normalize, schema } from "normalizr";
 import * as services from "../../../services";
 
 export const selectCharacter = id => ({ type: CHARACTER_SELECT, id });
-export const fetchCharacters = () => {
+export const fetchCharacters = queryObj => {
+  window.console.log(queryObj);
   return {
+    queryObj,
     [CALL_API]: {
       types: [
         CHARACTER_FETCH,

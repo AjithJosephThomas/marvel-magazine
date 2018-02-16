@@ -1,3 +1,30 @@
+body,
+html {
+  height: 100%;
+}
+.app-footer {
+  position: absolute;
+  bottom: 0;
+}
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  background: #c60b09;
+  transform: rotate(45deg);
+  animation: spin 1s infinite linear;
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 .inline {
   display: inline;
 }

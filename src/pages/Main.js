@@ -6,6 +6,7 @@ import { Switch, Route, withRouter } from "react-router-dom";
 
 import Alert from "react-s-alert";
 import AppHeader from "../components/Header";
+import AppFooter from "../components/Footer";
 import scrollToComponent from "react-scroll-to-component";
 
 import Comics from "./Comics";
@@ -40,7 +41,7 @@ class Main extends Component {
         <header className="container">
           <AppHeader className="row col-xs-12 app-header" />
         </header>
-        <div className="container">
+        <main role="main" className="container">
           <Switch>
             <Route path="/" exact component={Comics} />
             <Route path="/comics" exact component={Comics} />
@@ -48,7 +49,7 @@ class Main extends Component {
             <Route path="/characters" exact component={Characters} />
             <Route path="/characters/:id" exact component={CharacterDetail} />
           </Switch>
-        </div>
+        </main>
       </div>
     );
   }

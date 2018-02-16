@@ -22,8 +22,12 @@ export const marvelRequestMiddleWare = store => next => action => {
       endpoint += `/${queryObj.id}`;
       delete queryObj.id;
     }
+    const query = paramsToSubStr({ ...queryObj, apikey, ts, hash });
+    if (query.length) {
+      query;
+      endpoint += `?${query}`;
+    }
 
-    endpoint += paramsToSubStr({ ...queryObj, apikey, ts, hash });
     rsaa.endpoint = endpoint;
     delete action.queryObj;
   }

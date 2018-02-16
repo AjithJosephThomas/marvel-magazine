@@ -5,6 +5,7 @@ import {
   COMICS_FETCH,
   COMICS_FETCH_SUCCESS,
   COMICS_FETCH_FAILURE,
+  COMICS_FILTER_TOGGLE_VIEW,
   COMICS_FILTER_FETCH,
   COMICS_FILTER_SERIES_SELECT,
   COMICS_FILTER_FETCH_SUCCESS,
@@ -21,6 +22,12 @@ export const selectSearchMode = selectedSearchModeId => ({
   type: COMICS_FILTER_SERIES_SELECT,
   selectedSearchModeId
 });
+export const toggleFilter = isFilterMaximised => {
+  return {
+    type: COMICS_FILTER_TOGGLE_VIEW,
+    isFilterMaximised
+  };
+};
 export const selectFilter = option => ({
   type: COMIC_FILTER_OPTION_SELECT,
   option
@@ -55,7 +62,7 @@ export const fetchComics = queryObj => {
                 comic
               ]);
               const { comicsById } = entities;
-              return { offset, limit, total, count, comicsById, result };
+              return { offset, limit, count, comicsById, result };
             });
           }
         },
