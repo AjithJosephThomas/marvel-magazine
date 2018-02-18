@@ -54,3 +54,4 @@ What is pending:
 6) Refactor ComicTiles and CharacterTiles to have a HOC for scroll handling.
 7) Refactor ComicLists and CharacterLists to have a HOC for infinite scroll.
 8) Better data cachining mechanism.
+9) Test cases
