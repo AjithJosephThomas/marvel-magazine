@@ -1,7 +1,7 @@
 # marvel-magazine
 To run this project
-	yarn install
-	yarn start
+1)	yarn install
+2)	yarn start
 
 The functionalities mentioned in the test are met to the best of my understanding.
 
