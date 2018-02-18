@@ -49,4 +49,8 @@ What is pending:
 1) Refactor code with redux-saga as the middleware would be a better suite.
 2) Improve infinite scroll to load relevant set of data that merging.
 3) Improve normalisation for more detailed schema.
-4) Filter based on title/name
+4) Filter based on title/name.
+5) Preloaders are being worked out.
+6) Refactor ComicTiles and CharacterTiles to have a HOC for scroll handling.
+7) Refactor ComicLists and CharacterLists to have a HOC for infinite scroll.
+8) Better data cachining mechanism.
