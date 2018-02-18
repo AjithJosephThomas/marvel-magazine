@@ -1,5 +1,7 @@
 # marvel-magazine
 https://ajithjosephthomas.github.io/
+
+
 To run this project
 1)	yarn install
 2)	yarn start
