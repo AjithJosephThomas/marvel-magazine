@@ -5,6 +5,10 @@ import { normalize, schema } from "normalizr";
 import { paramsToSubStr } from "../parsers/endPointParser";
 const PRIVATE_KEY = "022a55a7d2c04a04d1611f49fdce30dac148e0a1";
 const PUBLIC_KEY = "27a0cb6328cd58ff67619f0219b5005f";
+/**
+ * Middleware to append the requests to Marvel api with keys.
+ * also manages parsing query boject and ppending it to end point
+ */
 export const marvelRequestMiddleWare = store => next => action => {
   if (action[CALL_API]) {
     let { queryObj } = action;

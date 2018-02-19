@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-
+/**
+ * Add the rendered application footer
+ * @param void
+ * @returns {Node} - The rendered application footer
+ * @constructor
+ */
 const appFooter = () => (
   <footer className="app-footer">
     <div className=" container text-center mar-bottom mar-top">

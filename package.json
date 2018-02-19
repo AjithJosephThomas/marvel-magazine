@@ -4,7 +4,9 @@
   "main": "index.html",
   "scripts": {
     "start": "webpack-dev-server  --profile",
-    "test": "mocha test.config.js src/**/*.spec.js --compilers js:babel-core/register"
+    "build": "webpack --config webpack.production.config.js --progress",
+    "test":
+      "mocha test.config.js src/**/*.spec.js --compilers js:babel-core/register"
   },
   "author": "ajithjosephthomas@gmail.com",
   "license": "UNLICENSED",
