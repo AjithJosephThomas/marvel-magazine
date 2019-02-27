@@ -11,6 +11,7 @@ import {
 import Main from "./pages/Main";
 import ComicsDetail from "./pages/ComicsDetail";
 import reducers from "./reducers";
+import "react-select/scss/default.scss";
 import "./style/index.scss";
 import { composeWithDevTools } from "redux-devtools-extension";
 

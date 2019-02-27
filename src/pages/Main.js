@@ -20,7 +20,6 @@ class Main extends Component {
     const { history } = props;
     history.listen(o => {
       setTimeout(() => {
-        window.console.log(";;;");
         window.scrollTo(0, 0);
       }, 1000);
     });
