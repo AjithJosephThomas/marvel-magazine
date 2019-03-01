@@ -48,6 +48,7 @@ class ComicsList extends PureComponent {
       <div>
         <div>
           <Masonry>{result.map(id => <ComicTile key={id} id={id} />)}</Masonry>
+            {isComicsLoading?<Loader />:null}
         </div>
       </div>
     );

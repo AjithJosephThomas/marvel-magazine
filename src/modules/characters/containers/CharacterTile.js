@@ -15,7 +15,6 @@ const CharacterTile = ({ character, isSelected, selectCharacter }) => (
       className={`panel panel-default bg-primary`}
       onClick={evt => {
         evt.stopPropagation();
-        window.console.log(character);
         selectCharacter(character.id);
       }}
     >

@@ -35,7 +35,8 @@ export function comicsList(state = INITIAL_STATE, action) {
   switch (type) {
     case COMICS_FILTER_FETCH: {
       const isFilterLoading = true;
-      return { ...state, isFilterLoading };
+      const isComicsLoading = true;
+      return { ...state, isFilterLoading, isComicsLoading };
     }
     case COMICS_FETCH: {
       const isComicsLoading = true;

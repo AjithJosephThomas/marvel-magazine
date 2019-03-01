@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import CharacterTile from "./CharacterTile";
 import Masonry from "../../../components/Masonry";
+import Loader from "../../../components/Loader";
 import { fetchCharacters } from "../actions";
 class CharactersList extends PureComponent {
   componentWillMount = () => {
@@ -42,23 +43,27 @@ class CharactersList extends PureComponent {
     document.removeEventListener("scroll", this.handleScroll);
   }
   render = () => (
-    <Masonry>
-      {this.props.result.map(id => <CharacterTile key={id} id={id} />)}
-    </Masonry>
+    <div>
+      <Masonry>
+        {this.props.result.map(id => <CharacterTile key={id} id={id} />)}
+      </Masonry>
+      {this.props.isCharactersLoading?<Loader />:null}
+    </div>
   );
 }
 
 CharactersList.propTypes = {
   result: PropTypes.array.isRequired,
   selectedId: PropTypes.number,
-  nextOffset: PropTypes.number
+  nextOffset: PropTypes.number,
+  isCharactersLoading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state, props) => {
   const { result, selectedId, offset,
-    count } = state.charactersList;
+    count, isCharactersLoading } = state.charactersList;
   const nextOffset = offset + count;
-  return { result, selectedId, nextOffset };
+  return { result, selectedId, nextOffset, isCharactersLoading };
 };
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ fetchCharacters }, dispatch);

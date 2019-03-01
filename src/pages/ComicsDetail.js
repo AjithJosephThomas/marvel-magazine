@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import ListGroup from "../components/ListGroup";
 import Panel from "../components/Panel";
 import { fetchComics } from "../modules/comics/actions";
+import Loader from "../components/Loader";
 class ComicDetail extends Component {
   componentWillMount = () => {
     const { id, comic, fetchComics } = this.props;
@@ -13,9 +14,14 @@ class ComicDetail extends Component {
       fetchComics({ id });
     }
   };
+  componentDidMount=()=>{
+      window.scrollTo(0, 0);
+  }
   render = () => {
     const { comic } = this.props;
-    return comic === null ? null : (
+    return comic === null ?
+    (<div className="col-xs-12 detail"> <Loader />
+    </div>) : (
       <div className="col-xs-12 detail">
         <h3>{comic.title}</h3>
         <hr />

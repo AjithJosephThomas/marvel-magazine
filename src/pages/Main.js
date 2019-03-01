@@ -17,12 +17,6 @@ import CharacterDetail from "./CharacterDetail";
 class Main extends Component {
   constructor(props) {
     super(props);
-    const { history } = props;
-    history.listen(o => {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 1000);
-    });
   }
   componentWillReceiveProps(nextProps) {
     const { alertMessage } = nextProps;

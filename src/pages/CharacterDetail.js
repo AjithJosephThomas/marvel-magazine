@@ -4,6 +4,7 @@ import Main from "./Main";
 import { connect } from "react-redux";
 import ListGroup from "../components/ListGroup";
 import Panel from "../components/Panel";
+import Loader from "../components/Loader";
 import { bindActionCreators } from "redux";
 import { fetchCharacters } from "../modules/characters/actions";
 class CharacterDetail extends Component {
@@ -13,9 +14,15 @@ class CharacterDetail extends Component {
       fetchCharacters({ id });
     }
   };
+  componentDidMount=()=>{
+      window.scrollTo(0, 0);
+  };
   render = () => {
     const { character, urlLinks } = this.props;
-    return character === null ? null : (
+
+    return character === null ?
+    <div className="col-xs-12 detail"><Loader /></div> :
+     (
       <div className="col-xs-12 detail">
         <h3>{character.name}</h3>
         <hr />
